@@ -13,6 +13,7 @@
 		6B4B7A0C22452F89007366D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B4B7A0B22452F89007366D2 /* Assets.xcassets */; };
 		6B4B7A0F22452F89007366D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B4B7A0D22452F89007366D2 /* LaunchScreen.storyboard */; };
 		6B4B7A1722453208007366D2 /* KeyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4B7A1622453208007366D2 /* KeyCell.swift */; };
+		6B97A5B72247599C00564013 /* DialedNumbersHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B97A5B62247599C00564013 /* DialedNumbersHeader.swift */; };
 		6BF578FF224626F30059C901 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF578FE224626F30059C901 /* UIView+Layout.swift */; };
 		6BF5790122462BC80059C901 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF5790022462BC80059C901 /* UIDevice+Extension.swift */; };
 /* End PBXBuildFile section */
@@ -26,6 +27,7 @@
 		6B4B7A0E22452F89007366D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B4B7A1022452F89007366D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B4B7A1622453208007366D2 /* KeyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCell.swift; sourceTree = "<group>"; };
+		6B97A5B62247599C00564013 /* DialedNumbersHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialedNumbersHeader.swift; sourceTree = "<group>"; };
 		6BF578FE224626F30059C901 /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		6BF5790022462BC80059C901 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,6 +64,7 @@
 			children = (
 				6B4B7A0422452F87007366D2 /* AppDelegate.swift */,
 				6B4B7A0622452F87007366D2 /* ViewController.swift */,
+				6B97A5B62247599C00564013 /* DialedNumbersHeader.swift */,
 				6B4B7A1622453208007366D2 /* KeyCell.swift */,
 				6BF578FE224626F30059C901 /* UIView+Layout.swift */,
 				6BF5790022462BC80059C901 /* UIDevice+Extension.swift */,
@@ -148,6 +151,7 @@
 				6B4B7A1722453208007366D2 /* KeyCell.swift in Sources */,
 				6B4B7A0722452F87007366D2 /* ViewController.swift in Sources */,
 				6BF5790122462BC80059C901 /* UIDevice+Extension.swift in Sources */,
+				6B97A5B72247599C00564013 /* DialedNumbersHeader.swift in Sources */,
 				6B4B7A0522452F87007366D2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// 集合视图单元格
 class KeyCell: UICollectionViewCell {
     
     /// 数字标签
@@ -16,15 +17,26 @@ class KeyCell: UICollectionViewCell {
     /// 字母标签
     var lettersLabel = UILabel()
     
+    /// 默认背景色
+    private let defaultBackgroundColor = UIColor(white: 0.9, alpha: 1)
+    
+    /// 是否高亮
+    override var isHighlighted: Bool {
+        didSet{ // 监听数值 `isHighlighted` 的改变, 从而修改 标签、背景的颜色
+            backgroundColor = isHighlighted ? UIColor.lightGray : UIColor(white: 0.9, alpha: 1)
+            digitsLabel.textColor = isHighlighted ? .white : .black
+            lettersLabel.textColor = isHighlighted ? .white : .black
+        }
+    }
+    
     // MARK: - initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor(white: 0.9, alpha: 1)
+        backgroundColor = defaultBackgroundColor
         
         digitsLabel.text = "0"
         digitsLabel.textAlignment = .center
         digitsLabel.font = UIDevice.current.screenType == .iPhones_5_5s_5c_SE ? UIFont.systemFont(ofSize: 24) : UIFont.systemFont(ofSize: 32)
-        
         
         lettersLabel.text = "A B C"
         lettersLabel.textAlignment = .center
@@ -36,14 +48,11 @@ class KeyCell: UICollectionViewCell {
          */
         let stackView = UIStackView(arrangedSubviews: [digitsLabel, lettersLabel])
         
-        
-//        stackView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
-        
         // 设置子视图的布局方向
         stackView.axis = .vertical
         
         // 间隙
-//        stackView.spacing = 1
+        stackView.spacing = 0
         
         // 子视图的填充方式
         /*
@@ -53,13 +62,12 @@ class KeyCell: UICollectionViewCell {
          case equalSpacing
          case equalCentering
          */
-//        //子视图的高度或宽度保持一致
+        //子视图的高度或宽度保持一致
 //        stackView.distribution = .fillEqually
         
-//        // 子视图的对齐方式
+        // 子视图的对齐方式
 //        stackView.alignment = .center
        
-        
         addSubview(stackView)
         stackView.centerInSuperview()
         

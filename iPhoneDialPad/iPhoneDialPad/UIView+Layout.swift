@@ -47,6 +47,9 @@ extension UIView {
         return anchoredConstraints
     }
     
+    /// 填充父视图
+    ///
+    /// - Parameter padding: 边距
     func fillSuperview(padding: UIEdgeInsets = .zero) {
         translatesAutoresizingMaskIntoConstraints = false
         if let superviewTopAnchor = superview?.topAnchor {
