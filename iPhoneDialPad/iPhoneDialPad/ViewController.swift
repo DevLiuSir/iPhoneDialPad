@@ -9,11 +9,12 @@
 import UIKit
 
 
-/// 单元格重用标识符
 private let cellID = "cellID"
-
-/// 头部视图重用标识符
 private let headerID = "headerID"
+private let greenButtonCellID = "greenButtonCellID"
+private let backspaceCellID = "backspaceCellID"
+
+
 
 
 class ViewController: UICollectionViewController {
@@ -30,30 +31,61 @@ class ViewController: UICollectionViewController {
     ]
     
     /// 已拨号码显示字符串
-    var DialedNumbersDisplayString = ""
+    private lazy var DialedNumbersDisplayString = ""
+    
+    /// 左右边距
+    private lazy var leftRightPadding = view.frame.width * 0.15
+    
+    /// 间隔
+    private lazy var interSpacing = view.frame.width * 0.1
+    
+    /// 每行cell的个数
+    private lazy var count: CGFloat = 3
+    
+    /// cell宽度
+    private lazy var cellWidth = (view.frame.width - leftRightPadding * 2 - interSpacing * 2) / count
+    
     
     // MARK: - view life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let layout = UICollectionViewFlowLayout()
-//        layout.itemSize = CGSize(width: 20, height: 20)     // 设置单元格的大小
-//        layout.minimumLineSpacing = 16                      // 设置单元格之间的最小 行间距
-//        layout.minimumInteritemSpacing = 0                  // 设置单元格之间的最小 列间距
-        layout.scrollDirection = .vertical                      // 设置布局方向为: 水平滚动
+        layout.scrollDirection = .vertical  // 设置布局方向为: 水平滚动
         
         collectionView.backgroundColor = .white
         collectionView.collectionViewLayout = layout
         collectionView.register(KeyCell.self, forCellWithReuseIdentifier: cellID)
+        collectionView.register(GreenCallButtonCell.self, forCellWithReuseIdentifier: greenButtonCellID)
+        collectionView.register(BackspaceCell.self, forCellWithReuseIdentifier: backspaceCellID)
         collectionView.register(DialedNumbersHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerID)
     }
 
     // MARK: - UICollectionViewDataSource
+    
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if section == 1 {
+            return 2
+        }
         return numbers.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if indexPath.section == 1 { // 1组0行 绿色拨号cell
+            if indexPath.item == 0 {
+                let greenButtonCell = collectionView.dequeueReusableCell(withReuseIdentifier: greenButtonCellID, for: indexPath) as! GreenCallButtonCell
+                return greenButtonCell
+            }else { // 退格键cell
+                let backspaceCell = collectionView.dequeueReusableCell(withReuseIdentifier: backspaceCellID, for: indexPath) as! BackspaceCell
+                return backspaceCell
+            }
+        }
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! KeyCell
         cell.digitsLabel.text = numbers[indexPath.item]
         cell.lettersLabel.text = letters[indexPath.item]
@@ -70,15 +102,18 @@ class ViewController: UICollectionViewController {
     
     // MARK: - UICollectionViewDelegate
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        print(indexPath.item)
-        
-        /// 取出当前选择的item的数字
-        let number = numbers[indexPath.item]
-        
-        // 修改已拨号码显示的字符串
-        DialedNumbersDisplayString += number
-        
+        // 退格cell的index
+        if indexPath.section == 1 {
+            if indexPath.item == 1 {
+                //dropLast(): 返回包含序列的最后一个元素以外的所有元素的子序列。达到删除效果
+                DialedNumbersDisplayString = String(DialedNumbersDisplayString.dropLast())
+            }
+        }else {
+            /// 取出当前选择的item的数字
+            let number = numbers[indexPath.item]
+            // 修改已拨号码显示的字符串
+            DialedNumbersDisplayString += number
+        }
         // 重新加载collectionView
         collectionView.reloadData()
     }
@@ -94,15 +129,6 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     // 设定全局的Cell尺寸，如果想要单独定义某个Cell的尺寸，可以使用该方法：
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        /// 左右间距
-        let leftRightPadding = view.frame.width * 0.15
-        
-        /// 间隔
-        let interSpacing = view.frame.width * 0.1
-        
-        /// cell宽度
-        let cellWidth = (view.frame.width - leftRightPadding * 2 - interSpacing * 2) / 3
-        
         return .init(width: cellWidth, height: cellWidth)
     }
     
@@ -116,18 +142,21 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     // 设定全局的区内边距，如果想要设定指定区的内边距，可以使用该方法：
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
-        /// 左右间距
-        let leftRightPadding = view.frame.width * 0.15
-        
-        /// 间隔
-//        let interSpacing = view.frame.width * 0.1
-        
+        if section == 1 {
+            /// 左边边距
+            let leftPadding = view.frame.width / 2 - cellWidth / 2
+            return .init(top: 0, left: leftPadding, bottom: 0, right: self.leftRightPadding)
+        }
         return .init(top: 16, left: leftRightPadding, bottom: 16, right: leftRightPadding)
     }
     
     // headerReferenceSize 属性与 footerReferenceSize 属性
     // 设置页眉（头部视图）全局尺寸，需要注意的是，根据滚动方向不同，header和footer的width和height中只有一个会起作用。如果要单独设置指定区内的页面和页脚尺寸，可以使用该方法：
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
+        if section == 1 {
+            return .zero
+        }
         /// 高度
         let height = view.frame.height * 0.2
         return .init(width: view.frame.width, height: height)

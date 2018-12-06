@@ -7,18 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B33A7AF225093F5006203C0 /* KeyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B33A7AB225093F5006203C0 /* KeyCell.swift */; };
+		6B33A7B0225093F5006203C0 /* DialedNumbersHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B33A7AC225093F5006203C0 /* DialedNumbersHeader.swift */; };
+		6B33A7B1225093F5006203C0 /* BackspaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B33A7AD225093F5006203C0 /* BackspaceCell.swift */; };
+		6B33A7B2225093F5006203C0 /* GreenCallButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B33A7AE225093F5006203C0 /* GreenCallButtonCell.swift */; };
 		6B4B7A0522452F87007366D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4B7A0422452F87007366D2 /* AppDelegate.swift */; };
 		6B4B7A0722452F87007366D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4B7A0622452F87007366D2 /* ViewController.swift */; };
 		6B4B7A0A22452F87007366D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B4B7A0822452F87007366D2 /* Main.storyboard */; };
 		6B4B7A0C22452F89007366D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B4B7A0B22452F89007366D2 /* Assets.xcassets */; };
 		6B4B7A0F22452F89007366D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B4B7A0D22452F89007366D2 /* LaunchScreen.storyboard */; };
-		6B4B7A1722453208007366D2 /* KeyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4B7A1622453208007366D2 /* KeyCell.swift */; };
-		6B97A5B72247599C00564013 /* DialedNumbersHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B97A5B62247599C00564013 /* DialedNumbersHeader.swift */; };
 		6BF578FF224626F30059C901 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF578FE224626F30059C901 /* UIView+Layout.swift */; };
 		6BF5790122462BC80059C901 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF5790022462BC80059C901 /* UIDevice+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B33A7AB225093F5006203C0 /* KeyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyCell.swift; sourceTree = "<group>"; };
+		6B33A7AC225093F5006203C0 /* DialedNumbersHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialedNumbersHeader.swift; sourceTree = "<group>"; };
+		6B33A7AD225093F5006203C0 /* BackspaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackspaceCell.swift; sourceTree = "<group>"; };
+		6B33A7AE225093F5006203C0 /* GreenCallButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenCallButtonCell.swift; sourceTree = "<group>"; };
 		6B4B7A0122452F87007366D2 /* iPhoneDialPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPhoneDialPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B4B7A0422452F87007366D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B4B7A0622452F87007366D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,8 +32,6 @@
 		6B4B7A0B22452F89007366D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B4B7A0E22452F89007366D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B4B7A1022452F89007366D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6B4B7A1622453208007366D2 /* KeyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCell.swift; sourceTree = "<group>"; };
-		6B97A5B62247599C00564013 /* DialedNumbersHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialedNumbersHeader.swift; sourceTree = "<group>"; };
 		6BF578FE224626F30059C901 /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		6BF5790022462BC80059C901 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -43,6 +47,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B33A7AA225093F5006203C0 /* UICollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				6B33A7AB225093F5006203C0 /* KeyCell.swift */,
+				6B33A7AC225093F5006203C0 /* DialedNumbersHeader.swift */,
+				6B33A7AD225093F5006203C0 /* BackspaceCell.swift */,
+				6B33A7AE225093F5006203C0 /* GreenCallButtonCell.swift */,
+			);
+			path = UICollectionView;
+			sourceTree = "<group>";
+		};
 		6B4B79F822452F87007366D2 = {
 			isa = PBXGroup;
 			children = (
@@ -62,10 +77,9 @@
 		6B4B7A0322452F87007366D2 /* iPhoneDialPad */ = {
 			isa = PBXGroup;
 			children = (
+				6B33A7AA225093F5006203C0 /* UICollectionView */,
 				6B4B7A0422452F87007366D2 /* AppDelegate.swift */,
 				6B4B7A0622452F87007366D2 /* ViewController.swift */,
-				6B97A5B62247599C00564013 /* DialedNumbersHeader.swift */,
-				6B4B7A1622453208007366D2 /* KeyCell.swift */,
 				6BF578FE224626F30059C901 /* UIView+Layout.swift */,
 				6BF5790022462BC80059C901 /* UIDevice+Extension.swift */,
 				6B4B7A0822452F87007366D2 /* Main.storyboard */,
@@ -148,11 +162,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BF578FF224626F30059C901 /* UIView+Layout.swift in Sources */,
-				6B4B7A1722453208007366D2 /* KeyCell.swift in Sources */,
 				6B4B7A0722452F87007366D2 /* ViewController.swift in Sources */,
 				6BF5790122462BC80059C901 /* UIDevice+Extension.swift in Sources */,
-				6B97A5B72247599C00564013 /* DialedNumbersHeader.swift in Sources */,
+				6B33A7B1225093F5006203C0 /* BackspaceCell.swift in Sources */,
 				6B4B7A0522452F87007366D2 /* AppDelegate.swift in Sources */,
+				6B33A7B2225093F5006203C0 /* GreenCallButtonCell.swift in Sources */,
+				6B33A7B0225093F5006203C0 /* DialedNumbersHeader.swift in Sources */,
+				6B33A7AF225093F5006203C0 /* KeyCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
