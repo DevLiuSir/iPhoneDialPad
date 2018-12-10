@@ -8,4 +8,6 @@
 [![Twitter Follow](https://img.shields.io/twitter/follow/LiuChuan_.svg?style=social)](https://twitter.com/LiuChuan_)
 
 ### Screenshot
-![](https://github.com/ChinaHackers/iPhoneDialPad/raw/master/Screenshot/Screenshot01.png) 
+<p align="center">
+    <img src="https://github.com/ChinaHackers/iPhoneDialPad/raw/master/Screenshot/Screenshot01.png" width="344" height="610">
+</p>
