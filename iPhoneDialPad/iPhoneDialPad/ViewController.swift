@@ -27,7 +27,7 @@ class ViewController: UICollectionViewController {
     
     /// 数字
     let numbers = [
-        "1", "2", "3", "4", "5", "6", "7", "8", "9", "*", "0", "#"
+        "1", "2", "3", "4", "5", "6", "7", "8", "9", "﹡", "0", "#"
     ]
     
     /// 已拨号码显示字符串
@@ -50,10 +50,12 @@ class ViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .systemBackground
+        
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical  // 设置布局方向为: 水平滚动
-        
-        collectionView.backgroundColor = .white
+        // 适配暗黑模式
+        collectionView.backgroundColor = .systemBackground
         collectionView.collectionViewLayout = layout
         collectionView.register(KeyCell.self, forCellWithReuseIdentifier: cellID)
         collectionView.register(GreenCallButtonCell.self, forCellWithReuseIdentifier: greenButtonCellID)

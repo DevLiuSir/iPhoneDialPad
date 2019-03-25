@@ -16,6 +16,7 @@ class DialedNumbersHeader: UICollectionReusableView {
         let label = UILabel()
         label.text = "123"
         label.textAlignment = .center
+        label.textColor = .label
         label.font = UIFont.systemFont(ofSize: 32)
         label.adjustsFontSizeToFitWidth = true
         return label

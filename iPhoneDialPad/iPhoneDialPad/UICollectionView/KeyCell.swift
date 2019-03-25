@@ -23,9 +23,21 @@ class KeyCell: UICollectionViewCell {
     /// 是否高亮
     override var isHighlighted: Bool {
         didSet{ // 监听数值 `isHighlighted` 的改变, 从而修改 标签、背景的颜色
-            backgroundColor = isHighlighted ? UIColor.lightGray : UIColor(white: 0.9, alpha: 1)
-            digitsLabel.textColor = isHighlighted ? .white : .black
-            lettersLabel.textColor = isHighlighted ? .white : .black
+            /// 暗黑色
+            let darkColor = UIColor(red: 0.20, green: 0.20, blue: 0.20, alpha: 1.00)
+            
+            // 适配暗黑模式
+            if self.traitCollection.userInterfaceStyle == .dark {
+                // Dark
+                backgroundColor = isHighlighted ? UIColor.lightGray : darkColor
+                digitsLabel.textColor = isHighlighted ? .black : .white
+                lettersLabel.textColor = isHighlighted ? .black : .white
+            }else {
+                // Light
+                backgroundColor = isHighlighted ? UIColor.lightGray : UIColor(white: 0.9, alpha: 1)
+                digitsLabel.textColor = isHighlighted ? .white : .black
+                lettersLabel.textColor = isHighlighted ? .white : .black
+            }
         }
     }
     
@@ -63,10 +75,10 @@ class KeyCell: UICollectionViewCell {
          case equalCentering
          */
         //子视图的高度或宽度保持一致
-//        stackView.distribution = .fillEqually
+        //stackView.distribution = .fillEqually
         
         // 子视图的对齐方式
-//        stackView.alignment = .center
+        //stackView.alignment = .center
        
         addSubview(stackView)
         stackView.centerInSuperview()
